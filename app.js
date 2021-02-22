@@ -15,13 +15,30 @@ var app = express();
 
 
 // Set up mongoose connection
-var mongoose = require('mongoose');
+/*var mongoose = require('mongoose');
 var dev_db_url = 'mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));*/
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+
+  host: "localhost",
+  user: "sebza",
+  password: "Sionesebemsomi1994!",
+  database: "PracticeDataBase"
+});
+
+con.connect(function(err) {
+ if (err) throw err;
+  con.query("SELECT * FROM Practice", function (err, result, fields) {
+  if (err) throw err;
+    console.log(result);
+  });
+});
 
 
 // view engine setup
