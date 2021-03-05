@@ -32,13 +32,13 @@ connection.connect(function(err) {
     console.log('Connected as id '/* + connection.threadId*/);
 });
 
-/*connection.query('SELECT * FROM Author', function (error, results, fields) {
+connection.query('SELECT * FROM Author', function (error, results, fields) {
     if (error)
         throw error;
 
     results.forEach(result => {
         console.log(result); 
     });
-});*/
+});
 
 //connection.end();
